@@ -2,7 +2,7 @@ const request = require("postman-request");
 
 const forecast = (latitude, longitude, callback) => {
 
-  const url = 'http://api.weatherstack.com/current?access_key=79704a20f4419d65baf010e965bb28f8&query=' + encodeURIComponent(latitude) + ',' + encodeURIComponent(longitude) + '&units=f';
+  const url = 'http://api.weatherstack.com/current?access_key=79704a20f4419d65baf010e965bb28f8&query=' + encodeURIComponent(latitude) + ',' + encodeURIComponent(longitude) + '&units=m';
 
   request({ url, json: true}, (error, { body }) => { //{ body this is destructuring otherwise reposne => }
 
@@ -11,7 +11,7 @@ const forecast = (latitude, longitude, callback) => {
     } else if(body.error) {
       callback('Unable to find the result. Try another Search!', undefined);
     } else {
-      callback(undefined, body.current.weather_descriptions[0] + '. In ' + body.location.name + '. It is currently '  + body.current.temperature + ` fahrenheit. With the humidity of ` + body.current.humidity + '.')
+      callback(undefined, body.current.weather_descriptions[0] + '. In ' + body.location.name + '. It is currently '  + body.current.temperature + ` degree. Time ` + body.current.observation_time + '.')
     }
   })
 
