@@ -1,16 +1,3 @@
-console.log("CLient side JS is loaded");
-
-
-// fetch('http://puzzle.mead.io/puzzle')
-// .then(response => {
-//   response.json().then(data => {
-//     if(data.puzzle) {
-//       console.log('ITs working' + data.puzzle)
-//     }
-//   }) 
-// });
-
-
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
 const messageOne = document.getElementById('message-1');
